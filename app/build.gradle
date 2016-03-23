@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 23
+  buildToolsVersion "23.0.2"
+
+  defaultConfig {
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+
+  defaultConfig {
+    applicationId "co.iyubinest.tddpokedex"
+    minSdkVersion 15
+    targetSdkVersion 23
+    versionCode 1
+    versionName "1.0"
+  }
+  buildTypes {
+    debug {
+      buildConfigField 'String', 'APP_URL', '""'
+      buildConfigField 'String', 'IMAGE_PATH', '""'
+    }
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      buildConfigField 'String', 'APP_URL', '""'
+      buildConfigField 'String', 'IMAGE_PATH', '""'
+    }
+  }
+}
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile 'com.android.support:appcompat-v7:23.2.1'
+  testCompile 'junit:junit:4.12'
+  androidTestCompile 'com.android.support:support-annotations:23.2.1'
+  androidTestCompile 'junit:junit:4.12'
+  androidTestCompile 'com.android.support.test:runner:0.5'
+  androidTestCompile 'com.android.support.test:rules:0.5'
+  androidTestCompile 'com.android.support.test.espresso:espresso-core:+'
+}
